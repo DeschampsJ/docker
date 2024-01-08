@@ -2,16 +2,10 @@ var express = require('express');
 var app = express();
 var os = require("os");
 
-app.set('view engine', 'jade');
-
 var port = process.env.PORT || 8080;
-var message = process.env.MESSAGE || "Learning Docker!";
 
 app.get('/', function (req, res) {
-    res.render('home', {
-      message: message,
-      hostName: os.hostname()
-    });
+    res.send("Learning Docker");
 });
 
 app.listen(port, function () {
