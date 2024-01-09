@@ -12,10 +12,9 @@ const client = redis.createClient({
 
 app.get('/', (req, res) => {
   client.incr('visits', (err, visits) => {
-    const hostInfo = `Host: ${os.hostname()}`;
     const containerInfo = `Container: ${process.env.HOSTNAME}`;
     const visitInfo = `Visits: ${visits}`;
-    const message = `${hostInfo}\n${containerInfo}\n${visitInfo}`;
+    const message = `${containerInfo}\n${visitInfo}`;
     res.send(`Hello, Docker Swarm!\n${message}`);
   });
 });
