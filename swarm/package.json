@@ -1,0 +1,14 @@
+{
+    "name": "docker-swarm-node-app",
+    "version": "1.0.0",
+    "description": "Node.js app for Docker Swarm example",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "redis": "^3.0.2"
+    }
+  }
+  
