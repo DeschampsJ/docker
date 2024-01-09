@@ -2,6 +2,7 @@
 
 const express = require('express');
 const redis = require('redis');
+const os = require('os');
 
 const app = express();
 const client = redis.createClient({
@@ -11,7 +12,11 @@ const client = redis.createClient({
 
 app.get('/', (req, res) => {
   client.incr('visits', (err, visits) => {
-    res.send(`Hello, Docker Swarm! Visits: ${visits}`);
+    const hostInfo = `Host: ${os.hostname()}`;
+    const containerInfo = `Container: ${process.env.HOSTNAME}`;
+    const visitInfo = `Visits: ${visits}`;
+    const message = `${hostInfo}\n${containerInfo}\n${visitInfo}`;
+    res.send(`Hello, Docker Swarm!\n${message}`);
   });
 });
 
