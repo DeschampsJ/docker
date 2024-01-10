@@ -10,10 +10,29 @@ Connect to the practice lab:
 
 ### I - First container
 
+First, add a new instance in the lab to start working with Docker.
+The following command will run a Docker container based on the Alpine Linux image and start an interactive shell (/bin/sh) within that container.
+The -it option asks for an interactive terminal session inside the Docker container.
 ```bash
 docker run -it alpine /bin/sh
+```
+
+You can check which Linux version you're using running that command:
+```bash
 cat /etc/os-released
+```
+
+Exit the interactive terminal:
+```bash
 exit
+```
+
+Check the list of running containers:
+```bash
+docker ls
+```
+Nothing is there, right? This is because when you ended the /bin/sh command, the container stopped. Now, let's try...
+```bash
 docker ls -a
 ```
 
@@ -64,5 +83,5 @@ Idée exo :
 TODO :
 	- Faire un pdf/github pour les exercices
 	- Code au propre
-Pas avoir a build dans les workers (push sur mon dockerhub en public)![image](https://github.com/DeschampsJ/docker/assets/72499926/bc69df17-7473-4246-919d-e08aef9385a7)
+	- Pas avoir a build dans les workers (push sur mon dockerhub en public)
 
