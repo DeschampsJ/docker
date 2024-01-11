@@ -148,7 +148,6 @@ If not, click "Open Port" and type "3000".
 In this exercise, we'll explore how to dynamically adjust the number of replicas for a service in Docker Swarm to meet changing requirements.
 
 1. Open the Docker Compose configuration file for editing on Node1:
-
     ```bash
     vi docker-compose.yml
     ```
@@ -160,13 +159,11 @@ In this exercise, we'll explore how to dynamically adjust the number of replicas
      - Write changes and quit with ":wq".
 
 2. Deploy the updated configuration to the Docker Swarm:
-
     ```bash
     docker stack deploy -c docker-compose.yml my-swarm-app
     ```
-
+    
 3. Verify that the Swarm has adapted to the changes:
-
     ```bash
     docker service ls
     docker stack ps my-swarm-app
@@ -175,17 +172,20 @@ In this exercise, we'll explore how to dynamically adjust the number of replicas
 ### Exercise 2: Exploring Docker's Self-Healing in Docker Swarm
 Let's explore Docker's self-healing capabilities. Docker Swarm automatically detects and replaces failed containers, ensuring continuous service availability.  
 1. Find on which container is running your app on at the moment. Then go look in the worker nodes wich worker is running this one container.
-```bash
-docker container ls
-```
+    ```bash
+    docker container ls
+    ```
+    
 2. Delete the container:
-```bash
-docker container rm <container_id> -f
-```
+    ```bash
+    docker container rm <container_id> -f
+    ```
+    
 3. Now observe the changes:
-```bash
-docker container ls
-```
+    ```bash
+    docker container ls
+    ```
+    
 You will notice that the Swarm automatically establishes a new container running the app to meet the specified number of replicas. 
 After refreshing your web app, observe that it remains operational but on a different host and that your data (visit count) is intact.  
 This self-healing capability is crucial for high availability and resilience in containerized environments.
