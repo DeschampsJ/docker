@@ -7,6 +7,8 @@ This collection of exercises is designed to discover Docker or improve your skil
 Connect to the practice lab:
 
 - [Labs: Play with Docker](https://labs.play-with-docker.com/)
+> [!NOTE]
+> You will need a personal Docker, Github or Google account.
 
 -----------------
 ### I - First container
