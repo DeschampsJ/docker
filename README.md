@@ -63,8 +63,8 @@ The following command will run a Docker container based on the image we just bui
 ```bash
 docker container run -d --name web -p 8000:8080 dockertuto:cpe
 ```
-The `-d` option is used to run a Docker container in detached mode, meaning that the container runs in the background, so you can keep using the terminal.
-We use `--name web` to name our running container which will allow us to simply run commands on it. 
+The `-d` option is used to run a Docker container in detached mode, meaning that the container runs in the background, so you can keep using the terminal.  
+We use `--name web` to name our running container which will allow us to simply run commands on it.  
 We also need to specify which ports will be used with the `-p` option. Port 8000 on the host machine will be mapped to port 8080 on the Docker container. 
 
   
