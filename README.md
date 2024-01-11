@@ -157,19 +157,19 @@ docker service ls
 docker stack ps my-swarm-app
 ```
   
-### Ex2
-Let's observe self-healing now.
-Find on which container is running you open webapp at the moment. Then go look in the worker nodes wich worker is running this one container.
+### Exercise 2: Exploring Docker's Self-Healing in Docker Swarm
+Let's explore Docker's self-healing capabilities. Docker Swarm automatically detects and replaces failed containers, ensuring continuous service availability.  
+1. Find on which container is running your app on at the moment. Then go look in the worker nodes wich worker is running this one container.
 ```bash
 docker container ls
 ```
-Delete it:
+2. Delete the container:
 ```bash
-docker container rm xxxx -f
+docker container rm <container_id> -f
 ```
-Now let's see what happened:
+3. Now observe the changes:
 ```bash
 docker container ls
 ```
-You can observe that the Swarm automatically established a new container running the app to meet the specified number of replicas. 
-After refreshing your web app, you'll notice that it is still operational but on a different host and that your data (visit count) remains intact.
+You will observe that the Swarm automatically establishes a new container running the app to meet the specified number of replicas. 
+After refreshing your web app, you'll notice that it remains operational but on a different host and that your data (visit count) is intact.
