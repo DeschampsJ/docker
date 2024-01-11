@@ -73,7 +73,7 @@ We use `--name web` to name our running container which will allow us to simply 
 We also need to specify which ports will be used with the `-p` option. Port 8000 on the host machine will be mapped to port 8080 on the Docker container. 
 
 
-Check the list of running containers:
+You can see that the container is up now.
 ```bash
 docker container ls
 ```
