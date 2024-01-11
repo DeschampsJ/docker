@@ -7,7 +7,8 @@ This collection of exercises is designed to discover Docker or improve your skil
 Connect to the practice lab:
 
 - [Labs: Play with Docker](https://labs.play-with-docker.com/)
-  
+
+-----------------
 ### I - First container
 
 First, add a new instance in the lab to start working with Docker.
@@ -66,7 +67,8 @@ docker container start web
 docker container rm web
 ```
 If you wanna remove a running container, you can force it using the -f option.
-  
+
+-----------------
 ### III - Docker Swarm, a step into orchestration
 
 Create 5 new instances to create a cluster.
