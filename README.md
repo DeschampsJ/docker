@@ -13,7 +13,8 @@ Connect to the practice lab:
 -----------------
 ### I - First container
 
-First, add a new instance in the lab to start working with Docker.
+Let's create our first container running a Linux image.  
+Add a new instance in the lab to start working with Docker.
 The following command will run a Docker container based on the Alpine Linux image and start an interactive shell `/bin/sh` within that container.
 The `-it` option asks for an interactive terminal session inside the Docker container.
 ```bash
