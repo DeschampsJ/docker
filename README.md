@@ -35,12 +35,12 @@ exit
 ```
 Check the list of running containers:
 ```bash
-docker ls
+docker container ls
 ```
 
 Nothing is there, right? This is because when you ended the /bin/sh command, the container stopped. Now, let's try:
 ```bash
-docker ls -a
+docker container ls -a
 ```
 You can see the exited container here. 
 
@@ -52,6 +52,7 @@ Previously we used the Alpine Linux image which was already built and included. 
 First clone the github repo:
 ```bash
 git clone https://github.com/DeschampsJ/docker
+cd docker
 cd container
 ```
 
