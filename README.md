@@ -171,5 +171,5 @@ docker container rm <container_id> -f
 ```bash
 docker container ls
 ```
-You will observe that the Swarm automatically establishes a new container running the app to meet the specified number of replicas. 
-After refreshing your web app, you'll notice that it remains operational but on a different host and that your data (visit count) is intact.
+You will notice that the Swarm automatically establishes a new container running the app to meet the specified number of replicas. 
+After refreshing your web app, observe that it remains operational but on a different host and that your data (visit count) is intact.
