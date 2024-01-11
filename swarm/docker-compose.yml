@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   web:
-    image: docker-swarm-node-app:latest
+    image: jlbw/docker-swarm-node-app:latest
     deploy:
       replicas: 10
       update_config:
