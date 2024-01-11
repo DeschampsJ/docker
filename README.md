@@ -27,7 +27,7 @@ docker run -it alpine /bin/sh
 
 You can check which Linux version you're using running that command:
 ```bash
-cat /etc/os-released
+cat /etc/os-release
 ```
 Exit the interactive terminal:
 ```bash
