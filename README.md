@@ -38,11 +38,11 @@ Check the list of running containers:
 docker container ls
 ```
 
-Nothing is there, right? This is because when you ended the /bin/sh command, the container stopped. Now, let's try:
+Nothing is there, right? This is because when you ended the `/bin/sh command`, the container stopped. Now, let's try:
 ```bash
 docker container ls -a
 ```
-You can see the exited container here. 
+You can see your container with the exited status. 
 
 -----------------
 ## II - Deploying a web app
