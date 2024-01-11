@@ -99,7 +99,7 @@ Having multiple nodes ensures the cluster stays operational, even if some nodes 
 Having an odd number of managers (3 in this case) helps in making decisions without tiebreakers.  
 Managers focus on managing the cluster, while workers handle running applications, providing clear roles and responsibilities.
 
-On the Node 1 wich will be the leader, be sure you find the IP address that will be used by your node to communicate with others. On this lab, it's the one starting by 192.168.
+On the Node 1 which will be the leader, be sure you find the IP address that will be used by your node to communicate with others. On this lab, it's the one starting by 192.168.
 Then initialise the swarm with this address:
 ```bash
 docker swarm init --advertise-addr 192.168.x.xx
@@ -196,7 +196,7 @@ In this exercise, we'll explore how to dynamically adjust the number of replicas
   
 ### Exercise 2: Exploring Docker's Self-Healing in Docker Swarm
 Let's explore Docker's self-healing capabilities. Docker Swarm automatically detects and replaces failed containers, ensuring continuous service availability.  
-1. Find on which container is running your app on at the moment. Then go look in the worker nodes wich worker is running this one container:
+1. Find on which container is running your app on at the moment. Then go look in the worker nodes which worker is running this one container:
     ```bash
     docker container ls
     ```
