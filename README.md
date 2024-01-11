@@ -11,8 +11,8 @@ Connect to the practice lab:
 ### I - First container
 
 First, add a new instance in the lab to start working with Docker.
-The following command will run a Docker container based on the Alpine Linux image and start an interactive shell (/bin/sh) within that container.
-The -it option asks for an interactive terminal session inside the Docker container.
+The following command will run a Docker container based on the Alpine Linux image and start an interactive shell `/bin/sh` within that container.
+The `-it` option asks for an interactive terminal session inside the Docker container.
 ```bash
 docker run -it alpine /bin/sh
 ```
@@ -21,12 +21,10 @@ You can check which Linux version you're using running that command:
 ```bash
 cat /etc/os-released
 ```
-
 Exit the interactive terminal:
 ```bash
 exit
 ```
-
 Check the list of running containers:
 ```bash
 docker ls
@@ -36,8 +34,9 @@ Nothing is there, right? This is because when you ended the /bin/sh command, the
 ```bash
 docker ls -a
 ```
-You can see the exited container here.
-  
+You can see the exited container here. 
+
+-----------------
 ### II - Deploying a web app
 
 Now we will deploy a web app in a container.
