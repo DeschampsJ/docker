@@ -127,7 +127,7 @@ docker stack deploy -c docker-compose.yml my-swarm-app
 If you read the docker-compose.yml file, you'll notice that the line indicating which image to use is image: jlbw/docker-swarm-node-app:latest. I've previously pushed the application image to my Docker Hub repository (GitHub equivalent for Docker images). This configuration ensures that the image is pulled from Docker Hub whenever a container is deployed.  
 It's important to note that Docker Swarm cannot build images as it deploys; thus, the application should be pre-built and tested before deployment.
 
-Try some of the basic commands:
+You can try some of the basic commands:
 ```bash
 docker service ls
 ```
@@ -140,7 +140,7 @@ docker stack ls
 ```bash
 docker stack ps my-swarm-app
 ```
-You can access the web app by clicking the "3000" button now showing.
+**Access the web app by clicking the "3000" button now showing.**
 If not, click "Open Port" and type "3000".
 
 ### Exercise 1: Rescaling the App in Docker Swarm
@@ -153,10 +153,10 @@ In this exercise, we'll explore how to dynamically adjust the number of replicas
     ```
 
    - **Quick Reminder for Vi:**
-     - Enter insertion mode with "i".
+     - Press "i" to enter insertion mode.
      - Make your changes.
      - Press "Esc" to exit insertion mode.
-     - Write changes and quit with ":wq".
+     - Write changes and quit typing `:wq`.
 
 2. Deploy the updated configuration to the Docker Swarm:
     ```bash
