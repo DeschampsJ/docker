@@ -174,6 +174,8 @@ In this exercise, we'll explore how to dynamically adjust the number of replicas
 3. Verify that the Swarm has adapted to the changes:
     ```bash
     docker service ls
+    ```
+    ```bash
     docker stack ps my-swarm-app
     ```
   
