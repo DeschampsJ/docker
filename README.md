@@ -143,19 +143,23 @@ Run the following command:
 ```bash
 docker stack deploy -c docker-compose.yml my-swarm-app
 ```
-If you read the docker-compose.yml file, you'll notice that the line indicating which image to use is image: jlbw/docker-swarm-node-app:latest. I've previously pushed the application image to my Docker Hub repository (GitHub equivalent for Docker images). This configuration ensures that the image is pulled from Docker Hub whenever a container is deployed.  
+If you read the docker-compose.yml file, you'll notice that the line indicating which image to use is image: `jlbw/docker-swarm-node-app:latest`. I've previously pushed the application image to my Docker Hub repository (GitHub equivalent for Docker images). This configuration ensures that the image is pulled from Docker Hub whenever a container is deployed.  
 It's important to note that Docker Swarm cannot build images as it deploys; thus, the application should be pre-built and tested before deployment.
 
 You can try some of the basic commands:
+This one will show you all the services active in you swarm. Here, you will observe the redis database and the replicated web application.
 ```bash
 docker service ls
 ```
+You already now this command to observe nodes and associates status.
 ```bash
 docker node ls
 ```
+This one will list the Docker stacks that are currently deployed in the Docker Swarm. You can depploy multiple stacks by using multiples `.yml` files.
 ```bash
 docker stack ls
 ```
+To zoom in, this command is used to list the tasks or replicas of services within a Docker Swarm stack. You can observe the replicas and in which node they have been deployed.
 ```bash
 docker stack ps my-swarm-app
 ```
