@@ -99,14 +99,7 @@ Having multiple nodes ensures the cluster stays operational, even if some nodes 
 Having an odd number of managers (3 in this case) helps in making decisions without tiebreakers.  
 Managers focus on managing the cluster, while workers handle running applications, providing clear roles and responsibilities.
 
-On the Node 1 wich will be the leader:
-Start by getting the Swarm files
-```bash
-git clone https://github.com/DeschampsJ/docker
-cd docker 
-cd swarm
-```
-First be sure you find the IP address wich will be used by your node to communicate with others. On this lab, it's the one starting by 192.168.
+On the Node 1 wich will be the leader, be sure you find the IP address that will be used by your node to communicate with others. On this lab, it's the one starting by 192.168.
 Then initialise the swarm with this address:
 ```bash
 docker swarm init --advertise-addr 192.168.x.xx
@@ -140,6 +133,12 @@ This will prevent the app to be deployed in the 3 managers.
 
   
 The deployment is managed by a pre-written config file (.yml).
+Start by getting the files from github:
+```bash
+git clone https://github.com/DeschampsJ/docker
+cd docker 
+cd swarm
+```
 Run the following command:
 ```bash
 docker stack deploy -c docker-compose.yml my-swarm-app
