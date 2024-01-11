@@ -125,13 +125,20 @@ Run the given command in Node 2 and Node 3 to make them join as managers:
 docker swarm join --token SWMTKN-1-xxx
 ```
 You have now configured a cluster with 3 managers and 2 workers.
+Verify it with the following command:
+```bash
+docker node ls
+```
+You should have your 5 nodes in a ready status, including one "Leader" and two "Reachable" managers.  
 Usually, you want the work to be done only by the workers, to achieve this run in a manager:
 ```bash
 docker node update --availability drain node1
 docker node update --availability drain node2
 docker node update --availability drain node3
 ```
-This will prevent the app to be deployed in the 3 managers.
+This will prevent the app to be deployed in the 3 managers.  
+
+  
 The deployment is managed by a pre-written config file (.yml).
 Run the following command:
 ```bash
