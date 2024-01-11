@@ -38,7 +38,7 @@ Check the list of running containers:
 docker ls
 ```
 
-Nothing is there, right? This is because when you ended the /bin/sh command, the container stopped. Now, let's try...
+Nothing is there, right? This is because when you ended the /bin/sh command, the container stopped. Now, let's try:
 ```bash
 docker ls -a
 ```
@@ -63,7 +63,7 @@ docker image build -t dockertuto:cpe .
 The `-t` parameter specify a name and an optional tag for the image being built. The format is typically `<name>:<tag>`.
 Do not forget the `.`, it specifies that the Dockerfile is in the current directory.
 
-The following command will run a Docker container based on the image we just built.
+The following command will run a Docker container based on the image we just built:
 ```bash
 docker container run -d --name web -p 8000:8080 dockertuto:cpe
 ```
@@ -101,7 +101,7 @@ cd docker
 cd swarm
 ```
 First be sure you find the IP address wich will be used by your node to communicate with others. On this lab, it's the one starting by 192.168.
-Then initialise the swarm with this address.
+Then initialise the swarm with this address:
 ```bash
 docker swarm init --advertise-addr 192.168.x.xx
 ```
@@ -114,7 +114,7 @@ Now go back in the leader node and run the following command to get the manager 
 ```bash
 docker swarm join-token manager
 ```
-Run the given command in Node 2 and Node 3 to make them join as managers.
+Run the given command in Node 2 and Node 3 to make them join as managers:
 ```bash
 docker swarm join --token SWMTKN-1-xxx
 ```
@@ -178,7 +178,7 @@ In this exercise, we'll explore how to dynamically adjust the number of replicas
   
 ### Exercise 2: Exploring Docker's Self-Healing in Docker Swarm
 Let's explore Docker's self-healing capabilities. Docker Swarm automatically detects and replaces failed containers, ensuring continuous service availability.  
-1. Find on which container is running your app on at the moment. Then go look in the worker nodes wich worker is running this one container.
+1. Find on which container is running your app on at the moment. Then go look in the worker nodes wich worker is running this one container:
     ```bash
     docker container ls
     ```
