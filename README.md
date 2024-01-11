@@ -82,15 +82,18 @@ docker container start web
 ```bash
 docker container rm web
 ```
-If you wanna remove a running container, you can force it using the -f option.
+If you wanna remove a running container, you can force it using the `-f` option.
 
 -----------------
 ## III - Docker Swarm, a step into orchestration
 
-Create 5 new instances to create a cluster.
-We will set up 3 managers and 2 workers.
+Create 5 new instances to start building a cluster.
+We will set up 3 managers and 2 workers.  
+Having multiple nodes ensures the cluster stays operational, even if some nodes fail.  
+Having an odd number of managers (3 in this case) helps in making decisions without tiebreakers.  
+Managers focus on managing the cluster, while workers handle running applications, providing clear roles and responsibilities.
 
-On the Node1 wich will be the leader:
+On the Node 1 wich will be the leader:
 Start by getting the Swarm files
 ```bash
 git clone https://github.com/DeschampsJ/docker
