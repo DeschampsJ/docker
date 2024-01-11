@@ -14,7 +14,7 @@ Connect to the practice lab:
 ## I - First container
 
 Let's create our first container running a Linux image.  
-First, add a new instance in the lab to start working with Docker.
+Begin by adding a new instance in the lab to start working with Docker.
 The following command will run a Docker container based on the Alpine Linux image and start an interactive shell `/bin/sh` within that container.
 The `-it` option asks for an interactive terminal session inside the Docker container.
 ```bash
@@ -43,22 +43,31 @@ You can see the exited container here.
 -----------------
 ## II - Deploying a web app
 
-Now we will deploy a web app in a container.
-First clone the github repo :
+Now we will deploy a personalized web app in a container.
+Previously we used the Alpine Linux image which was already built and included. We now have a javascript application so we need to build the image.
+First clone the github repo:
 ```bash
 git clone https://github.com/DeschampsJ/docker
 cd container
 ```
 
-Now you have acces to the app files : app.js, package.json & Dockerfile
+You have now acces to the app files `app.js` & `package.json` alongside with the `Dockerfile`.
+Let's build the web app image:
 ```bash
 docker image build -t dockertuto:cpe .
 ```
+The `-t` parameter specify a name and an optional tag for the image being built. The format is typically `<name>:<tag>`.
+Do not forget the `.`, it specifies that the Dockerfile is in the current directory.$
 
+The following command will run a Docker container based on the image we just built.
 ```bash
 docker container run -d --name web -p 8000:8080 dockertuto:cpe
 ```
+The `-d` option is used to run a Docker container in detached mode, meaning that the container runs in the background, so you can keep using the terminal.
+We use `--name web` to name our running container which will allow us to simply run commands on it.
+We also need to specify which ports will be used with the `-p` option. Port 8000 on the host machine will be mapped to port 8080 on the Docker container.
 
+  
 There are some commands you can try on your container:
 ```bash
 docker container stop web
