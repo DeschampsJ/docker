@@ -1,8 +1,8 @@
 # Docker Introduction
 
-This collection of exercises is designed to discover Docker or improve your skills, these exercises cover a range of topics from basic container creation to more advanced Docker features.
+This collection of exercises is designed to discover Docker and containerization, these exercises cover a range of topics from basic container creation to more advanced Docker features.
   
-### Prerequisites
+## Prerequisites
 
 Connect to the practice lab:
 
@@ -11,10 +11,10 @@ Connect to the practice lab:
 > You will need a personal Docker, Github or Google account.
 
 -----------------
-### I - First container
+## I - First container
 
 Let's create our first container running a Linux image.  
-Add a new instance in the lab to start working with Docker.
+First, add a new instance in the lab to start working with Docker.
 The following command will run a Docker container based on the Alpine Linux image and start an interactive shell `/bin/sh` within that container.
 The `-it` option asks for an interactive terminal session inside the Docker container.
 ```bash
@@ -41,7 +41,7 @@ docker ls -a
 You can see the exited container here. 
 
 -----------------
-### II - Deploying a web app
+## II - Deploying a web app
 
 Now we will deploy a web app in a container.
 First clone the github repo :
@@ -72,7 +72,7 @@ docker container rm web
 If you wanna remove a running container, you can force it using the -f option.
 
 -----------------
-### III - Docker Swarm, a step into orchestration
+## III - Docker Swarm, a step into orchestration
 
 Create 5 new instances to create a cluster.
 We will set up 3 managers and 2 workers.
@@ -115,10 +115,12 @@ Run the following command:
 ```bash
 docker stack deploy -c docker-compose.yml my-swarm-app
 ```
-Dans les deux workers :
-Git clone et 
+> [!CAUTION]
+> Dans les deux workers : Git clone et 
 	- cd swarm
 	- docker image build -t docker-swarm-node-app:latest .
+
+
 
 Try some of the basic commands:
 ```bash
@@ -136,7 +138,7 @@ docker stack ps my-swarm-app
 You can access the web app by clicking the "3000" button now showing.
 If not, click "Open Port" and type "3000".
 
-# Ex1
+### Ex1
 Let's say we need to rescale the app, the amount of replicas isn't enough.
 On Node1, edit the config file to change that number and deploy it again.
 ```bash
@@ -150,7 +152,7 @@ docker service ls
 docker stack ps my-swarm-app
 ```
   
-# Ex2
+### Ex2
 Let's observe self-healing now.
 Find on which container is running you open webapp at the moment. Then go look in the worker nodes wich worker is running this one container.
 ```bash
