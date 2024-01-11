@@ -147,4 +147,18 @@ docker stack ps my-swarm-app
 ```
 
 # Ex2
-Aller chercher dans les worker le container affiché dans la page web, le supprimer (docker container rm xxxx -f) et voir que la web app est toujours la avec le bon nombre de refresh et un nouveau container puis voir qu'un nouveau container a été créé pour garder le bon nombre de replica
+Let's observe self-healing now.
+Find on which container is running you open webapp at the moment. Then go look in the worker nodes wich worker is running this one container.
+```bash
+docker container ls
+```
+Delete it:
+```bash
+docker container rm xxxx -f
+```
+Now let's see what happened:
+```bash
+docker container ls
+```
+You can observe that the Swarm automatically established a new container running the app to meet the specified number of replicas. 
+After refreshing your web app, you'll notice that it is still operational but on a different host and that your data (visit count) remains intact.
