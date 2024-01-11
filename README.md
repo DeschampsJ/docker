@@ -159,7 +159,7 @@ This one will list the Docker stacks that are currently deployed in the Docker S
 ```bash
 docker stack ls
 ```
-To zoom in, this command is used to list the tasks or replicas of services within a Docker Swarm stack. You can observe the replicas and in which node they have been deployed.
+To zoom in, this command is used to list the tasks or replicas of services within a Docker Swarm stack. You can observe in which node they have been deployed.
 ```bash
 docker stack ps my-swarm-app
 ```
