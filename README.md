@@ -124,12 +124,8 @@ Run the following command:
 ```bash
 docker stack deploy -c docker-compose.yml my-swarm-app
 ```
-> [!CAUTION]
-> Dans les deux workers : Git clone et 
-	- cd swarm
-	- docker image build -t docker-swarm-node-app:latest .
-
-
+If you read `docker-compose.yml`, you can notice that the line indicating which image to use is `image: jlbw/docker-swarm-node-app:latest`.  
+I previously pushed the app image on my Docker Hub (Github equivalent for Docker images). This will pull the image from Docker Hub whenever a container is deployed. It is because Docker Swarm cannot build images as it deploys, the application should be already built and tested during the deployment.
 
 Try some of the basic commands:
 ```bash
