@@ -31,26 +31,50 @@ Check the list of running containers:
 ```bash
 docker ls
 ```
+
 Nothing is there, right? This is because when you ended the /bin/sh command, the container stopped. Now, let's try...
 ```bash
 docker ls -a
 ```
+You can see the exited container here.
 
 ### II - Deploying a web app
 
+Now we will deploy a web app in a container.
+First clone the github repo :
 ```bash
-mkdir app
-cd app
+git clone https://github.com/DeschampsJ/docker
+cd container
+```
+
+Now you have acces to the app files : app.js, package.json & Dockerfile
+```bash
 docker image build -t dockertuto:cpe .
+```
+
+```bash
 docker container run -d --name web -p 8000:8080 dockertuto:cpe
 ```
-start/stop/rm
+
+You can try on the container the following commands:
+```bash
+docker container stop web
+```
+```bash
+docker container start web
+```
+```bash
+docker container rm web
+```
+If you wanna force remove a container you can use the -f option.
 
 ### III - Docker Swarm, a step into orchestration
 
-Créer 5 instances
+Create 5 new instances to create a cluster.
+We will set up 3 managers and 2 workers.
 
-Node1 (leader) :
+On the Node1 wich will be the leader:
+Start by 
 Git clone, cd swarm et 
 	- docker swarm init --advertise-addr 192.168.x.xx (adresse de la node)
 	- docker swarm join-token manager
@@ -79,9 +103,3 @@ Voir web app (si pas affichée : open port 3000)
 Idée exo :
 	- modifier nb de replicas dans compose.yml et deploy puis voir les modif
 	- Aller chercher dans les worker le container affiché dans la page web, le supprimer (docker container rm xxxx -f) et voir que la web app est toujours la avec le bon nombre de refresh et un nouveau container puis voir qu'un nouveau container a été créé pour garder le bon nombre de replica
-
-TODO :
-	- Faire un pdf/github pour les exercices
-	- Code au propre
-	- Pas avoir a build dans les workers (push sur mon dockerhub en public)
-
