@@ -1,13 +1,13 @@
 # Docker Introduction
 
 This collection of exercises is designed to discover Docker or improve your skills, these exercises cover a range of topics from basic container creation to more advanced Docker features.
-
+  
 ### Prerequisites
 
 Connect to the practice lab:
 
 - [Labs: Play with Docker](https://labs.play-with-docker.com/)
-
+  
 ### I - First container
 
 First, add a new instance in the lab to start working with Docker.
@@ -37,7 +37,7 @@ Nothing is there, right? This is because when you ended the /bin/sh command, the
 docker ls -a
 ```
 You can see the exited container here.
-
+  
 ### II - Deploying a web app
 
 Now we will deploy a web app in a container.
@@ -67,7 +67,7 @@ docker container start web
 docker container rm web
 ```
 If you wanna remove a running container, you can force it using the -f option.
-
+  
 ### III - Docker Swarm, a step into orchestration
 
 Create 5 new instances to create a cluster.
@@ -145,7 +145,7 @@ Now go check that the Swarm adapted to your needs:
 docker service ls
 docker stack ps my-swarm-app
 ```
-
+  
 # Ex2
 Let's observe self-healing now.
 Find on which container is running you open webapp at the moment. Then go look in the worker nodes wich worker is running this one container.
