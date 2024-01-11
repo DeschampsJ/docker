@@ -11,7 +11,7 @@ Connect to the practice lab:
 > You will need a personal Docker, Github or Google account.
 
 > [!TIP]
-> To paste in the lab use `ctrl+maj+v`
+> To paste in the lab use `ctrl+maj+v`.
 > To copy in the lab use either `ctrl+fn+e` or `ctrl+fn+inser`
 
 -----------------
