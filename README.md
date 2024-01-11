@@ -12,7 +12,7 @@ Connect to the practice lab:
 
 > [!TIP]
 > To paste in the lab use `ctrl+maj+v`.
-> To copy in the lab use either `ctrl+fn+e` or `ctrl+fn+inser`
+> To copy in the lab use either `ctrl+fn+e` or `ctrl+inser`
 
 -----------------
 ## I - First container
