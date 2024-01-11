@@ -143,19 +143,34 @@ docker stack ps my-swarm-app
 You can access the web app by clicking the "3000" button now showing.
 If not, click "Open Port" and type "3000".
 
-### Ex1
-Let's say we need to rescale the app, the amount of replicas isn't enough.
-On Node1, edit the config file to change that number and deploy it again.
-```bash
-vi docker-compose.yml
-docker stack deploy -c docker-compose.yml my-swarm-app
-```
-(Quick reminder for vi: enter insertion mode with "i", do your changes then "esc" and write ":wq" to save and quit.)
-Now go check that the Swarm adapted to your needs:
-```bash
-docker service ls
-docker stack ps my-swarm-app
-```
+### Exercise 1: Rescaling the App in Docker Swarm
+
+In this exercise, we'll explore how to dynamically adjust the number of replicas for a service in Docker Swarm to meet changing requirements.
+
+1. Open the Docker Compose configuration file for editing on Node1:
+
+    ```bash
+    vi docker-compose.yml
+    ```
+
+   - **Quick Reminder for Vi:**
+     - Enter insertion mode with "i".
+     - Make your changes.
+     - Press "Esc" to exit insertion mode.
+     - Write changes and quit with ":wq".
+
+2. Deploy the updated configuration to the Docker Swarm:
+
+    ```bash
+    docker stack deploy -c docker-compose.yml my-swarm-app
+    ```
+
+3. Verify that the Swarm has adapted to the changes:
+
+    ```bash
+    docker service ls
+    docker stack ps my-swarm-app
+    ```
   
 ### Exercise 2: Exploring Docker's Self-Healing in Docker Swarm
 Let's explore Docker's self-healing capabilities. Docker Swarm automatically detects and replaces failed containers, ensuring continuous service availability.  
@@ -172,4 +187,5 @@ docker container rm <container_id> -f
 docker container ls
 ```
 You will notice that the Swarm automatically establishes a new container running the app to meet the specified number of replicas. 
-After refreshing your web app, observe that it remains operational but on a different host and that your data (visit count) is intact.
+After refreshing your web app, observe that it remains operational but on a different host and that your data (visit count) is intact.  
+This self-healing capability is crucial for high availability and resilience in containerized environments.
