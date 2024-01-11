@@ -56,7 +56,7 @@ docker image build -t dockertuto:cpe .
 docker container run -d --name web -p 8000:8080 dockertuto:cpe
 ```
 
-You can try on the container the following commands:
+There are some commands you can try on your container:
 ```bash
 docker container stop web
 ```
@@ -66,7 +66,7 @@ docker container start web
 ```bash
 docker container rm web
 ```
-If you wanna force remove a container you can use the -f option.
+If you wanna remove a running container, you can force it using the -f option.
 
 ### III - Docker Swarm, a step into orchestration
 
@@ -74,32 +74,77 @@ Create 5 new instances to create a cluster.
 We will set up 3 managers and 2 workers.
 
 On the Node1 wich will be the leader:
-Start by 
-Git clone, cd swarm et 
-	- docker swarm init --advertise-addr 192.168.x.xx (adresse de la node)
-	- docker swarm join-token manager
-
-Création d'un cluster : 
-	- docker swarm join --token SWMTKN-…
--> 3 managers : join avec le token manager
--> 2 workers : join avec le token worker
-
+Start by getting the Swarm files
+```bash
+git clone https://github.com/DeschampsJ/docker
+cd docker 
+cd swarm
+```
+First be sure you find the IP address wich will be used by your node to communicate with others. On this lab, it's the one starting by 192.168.
+Then initialise the swarm with this address.
+```bash
+docker swarm init --advertise-addr 192.168.x.xx
+```
+By doing this, Docker will return you a command to use in other nodes to join the Swarm as workers.
+Run it in Node 4 and Node 5:
+```bash
+docker swarm join --token SWMTKN-1-xxx
+```
+Now go back in the leader node and run the following command to get the manager token:
+```bash
+docker swarm join-token manager
+```
+Run the given command in Node 2 and Node 3 to make them join as managers.
+```bash
+docker swarm join --token SWMTKN-1-xxx
+```
+You have now configured a cluster with 3 managers and 2 workers.
+Usually, you want the work to be done only by the workers, to achieve this run in a manager:
+```bash
+docker node update --availability drain node1
+docker node update --availability drain node2
+docker node update --availability drain node3
+```
+This will prevent the app to be deployed in the 3 managers.
+The deployment is managed by a pre-written config file (.yml).
+Run the following command:
+```bash
+docker stack deploy -c docker-compose.yml my-swarm-app
+```
 Dans les deux workers :
 Git clone et 
 	- cd swarm
 	- docker image build -t docker-swarm-node-app:latest .
 
-Dans le leader :
-	- docker node update --availability drain nodeX (1,2,3 les managers)
-	- docker stack deploy -c docker-compose.yml my-swarm-app
+Try some of the basic commands:
+```bash
+docker service ls
+```
+```bash
+docker node ls
+```
+```bash
+docker stack ls
+```
+```bash
+docker stack ps my-swarm-app
+```
+You can access the web app by clicking the "3000" button now showing.
+If not, click "Open Port" and type "3000".
 
-Voir services :
-	- docker service ls
-	- docker node ls
-	- docker stack ls
+# Ex1
+Let's say we need to rescale the app, the amount of replicas isn't enough.
+On Node1, edit the config file to change that number and deploy it again.
+```bash
+vi docker-compose.yml
+docker stack deploy -c docker-compose.yml my-swarm-app
+```
+(Quick reminder for vi: enter insertion mode with "i", do your changes then "esc" and write ":wq" to save and quit.)
+Now go check that the Swarm adapted to your needs:
+```bash
+docker service ls
+docker stack ps my-swarm-app
+```
 
-Voir web app (si pas affichée : open port 3000)
-
-Idée exo :
-	- modifier nb de replicas dans compose.yml et deploy puis voir les modif
-	- Aller chercher dans les worker le container affiché dans la page web, le supprimer (docker container rm xxxx -f) et voir que la web app est toujours la avec le bon nombre de refresh et un nouveau container puis voir qu'un nouveau container a été créé pour garder le bon nombre de replica
+# Ex2
+Aller chercher dans les worker le container affiché dans la page web, le supprimer (docker container rm xxxx -f) et voir que la web app est toujours la avec le bon nombre de refresh et un nouveau container puis voir qu'un nouveau container a été créé pour garder le bon nombre de replica
