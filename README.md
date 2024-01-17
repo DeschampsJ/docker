@@ -72,11 +72,30 @@ The `-d` option is used to run a Docker container in detached mode, meaning that
 We use `--name web` to name our running container which will allow us to simply run commands on it.  
 We also need to specify which ports will be used with the `-p` option. Port 8000 on the host machine will be mapped to port 8080 on the Docker container. 
 
-
 You can see that the container is up now.
 ```bash
 docker container ls
 ```
+Start an other container based on Alpine Linux image.
+```bash
+docker run -dit alpine
+```
+
+Check the list of running containers.
+```bash
+docker container ls
+```
+
+You can connect to a container using exec command:
+```bash
+docker exec -it <container name> /bin/sh
+```
+
+You can check which Linux version you're using running that command:
+```bash
+cat /etc/os-release
+```
+
 
 There are some commands you can try on your container:
 ```bash
