@@ -61,8 +61,8 @@ Let's build the web app image:
 ```bash
 docker image build -t dockertuto:cpe .
 ```
-The `-t` parameter specify a name and an optional tag for the image being built. The format is typically `<name>:<tag>`.
-Do not forget the `.`, it specifies that the Dockerfile is in the current directory.
+The `-t` parameter specify a name and an optional tag for the image being built. The format is typically `<name>:<tag>`. Tag is an important feature for image versionning management.
+Do not forget the `.`, it specifies that the Dockerfile is in the current directory. To use file with a different name or file into a different path, use the option `-f`.
 
 The following command will run a Docker container based on the image we just built:
 ```bash
